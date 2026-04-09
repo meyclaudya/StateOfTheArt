@@ -16,7 +16,6 @@ const COLORS = [
 ];
 
 const App = () => {
-  // Setup State
   const [count, setCount] = useState(0);
   const [name, setName] = useState('');
   const [bgColor, setBgColor] = useState('#F2F2F7');
@@ -70,7 +69,6 @@ const App = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Validasi Side Quest */}
         {count === 0 && (
           <Text style={styles.hint}>Angka tidak bisa kurang dari 0</Text>
         )}
@@ -78,7 +76,7 @@ const App = () => {
 
       {/* ── Main Quest 2: Greeting Form ── */}
       <View style={styles.card}>
-        <Text style={styles.sectionLabel}></Text>
+        <Text style={styles.sectionLabel}>Form</Text>
 
         <TextInput
           style={styles.input}
@@ -91,15 +89,9 @@ const App = () => {
         />
 
         <View style={styles.greetingBox}>
-          {name.trim() ? (
-            <Text style={styles.greetingText}>
-              Halo, <Text style={styles.greetingName}>{name.trim()}</Text>!
-            </Text>
-          ) : (
-            <Text style={styles.greetingPlaceholder}>
-              Sapaan akan muncul di sini...
-            </Text>
-          )}
+          <Text style={styles.greetingText}>
+            Halo, <Text style={styles.greetingName}>{name.trim() || 'Bro'}</Text>!
+          </Text>
         </View>
       </View>
 
@@ -134,8 +126,6 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     gap: 14,
   },
-
-  // Header
   headerWrapper: {
     alignItems: 'center',
     marginTop: 8,
@@ -153,8 +143,6 @@ const styles = StyleSheet.create({
     marginTop: 2,
     textAlign: 'center',
   },
-
-  // Card
   card: {
     backgroundColor: '#FFFFFF',
     borderRadius: 16,
@@ -173,8 +161,6 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     marginBottom: 14,
   },
-
-  // Counter
   counterRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -221,8 +207,6 @@ const styles = StyleSheet.create({
     color: '#AEAEB2',
     marginTop: 10,
   },
-
-  // Greeting
   input: {
     borderWidth: 1,
     borderColor: '#D1D1D6',
@@ -247,13 +231,6 @@ const styles = StyleSheet.create({
     color: '#185FA5',
     fontWeight: '600',
   },
-  greetingPlaceholder: {
-    fontSize: 15,
-    color: '#AEAEB2',
-    fontStyle: 'italic',
-  },
-
-  // Color Toggle
   colorPreviewRow: {
     flexDirection: 'row',
     alignItems: 'center',
